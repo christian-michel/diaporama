@@ -1,5 +1,10 @@
 // récupérer et lister les images
 let nbPhoto = ["1.jpg","2.jpg","3.jpg"]; 
+let description = [
+    "Photomontage", 
+    "Touristes", 
+    "Coucher de soleil"
+]; 
 let i = "";
 const diapoSection = document.querySelector(".diapo_section"); 
 
@@ -37,6 +42,18 @@ photo.appendChild(btnPrev);
 btnPrev.addEventListener('click', function(){
     console.log(numeroPhoto("prev"));
   }); 
+
+/*
+ * ==========================
+ * Affichage de la description
+ * ==========================
+ */
+const textePhoto = document.createElement('div');
+textePhoto.classList.add("description-photo-diaporama");
+if(typeof description != 'undefined'){
+    photo.appendChild(textePhoto);  
+    textePhoto.innerHTML = description[0];
+} else {} 
 
 /*
  * ==========================
@@ -109,6 +126,7 @@ function numeroPhoto(x){
 
     affichePhoto(i);
     afficheNumero(i);
+    afficheDescription(i);
     return i;
 }; 
 
@@ -130,3 +148,11 @@ function afficheNumero(z){
         k++
     } 
 }; 
+
+function afficheDescription(d){ // à faire fonctionner
+    if(typeof description != 'undefined'){
+        const descriptionImg = description[d]; 
+        textePhoto.innerHTML = descriptionImg;
+        return textePhoto;
+    } else {}
+}
