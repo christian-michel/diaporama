@@ -33,6 +33,7 @@ h1 { color: red; }
 }
 .numero ul {
     display: inline;
+    padding: 0px;
 }
 .numero ul li {
     display: inline-block;
@@ -57,7 +58,6 @@ h1 { color: red; }
     color: #fff;
     cursor: default;
 }
-.numero ul li .no-active{}
 .numero ul li:hover {
     background-color: #aaa;
 }
@@ -84,11 +84,13 @@ h1 { color: red; }
 
 .description-photo-diaporama {
     background-color: rgba(0,0,0,0.6);
+    max-height: 30%;
     position: absolute;
-    display: inline-block;
+    display: inline;
     z-index: 999999999999999999999;
-    bottom: 10px;
-    left: 7px;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%,0%);
     color: #e1e1e1;
     text-shadow: 0px 0px 20px rgba(0,0,0,0.9);
     font-size: 14px;
@@ -98,4 +100,11 @@ h1 { color: red; }
     letter-spacing: 0.05em;
     text-align: center;
     border-radius: 8px;
+    margin-left:0px;
+    animation: slidein 0.2s;
+}
+@keyframes slidein {
+    0% { margin-left:-800px; }
+    20% { margin-left:-800px; }
+    100% { margin-left:0px; }
 }

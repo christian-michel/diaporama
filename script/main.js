@@ -52,7 +52,11 @@ const textePhoto = document.createElement('div');
 textePhoto.classList.add("description-photo-diaporama");
 if(typeof description != 'undefined'){
     photo.appendChild(textePhoto);  
-    textePhoto.innerHTML = description[0];
+    if(description[0] == ""){
+        textePhoto.style.display = "none";
+    }else{
+        textePhoto.innerHTML = description[0];
+    }
 } else {} 
 
 /*
@@ -149,10 +153,19 @@ function afficheNumero(z){
     } 
 }; 
 
-function afficheDescription(d){ // à faire fonctionner
+function afficheDescription(d){ 
     if(typeof description != 'undefined'){
-        const descriptionImg = description[d]; 
-        textePhoto.innerHTML = descriptionImg;
-        return textePhoto;
+        if(textePhoto.style.display == "none"){
+            textePhoto.style.display = "inherit";
+            const descriptionImg = description[d]; 
+            textePhoto.innerHTML = descriptionImg;
+            return textePhoto;
+        }else if(description[d] == ""){
+            textePhoto.style.display = "none";
+        }else{
+            const descriptionImg = description[d]; 
+            textePhoto.innerHTML = descriptionImg;
+            return textePhoto;
+        }
     } else {}
 }
